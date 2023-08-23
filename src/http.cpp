@@ -130,7 +130,7 @@ std::vector<char> http::handle_request(std::string data, boost::asio::io_context
 
         ResponseBuilder responsebuild = Response::create(200, "OK")
                             .add_header("Server", "puppets")
-                            .add_header("Content-Type", MimeDetector(fullpath).detect())
+                            .add_header("Content-Type", MimeDetector::detect(fullpath))
                             .add_header("Connection", "keep-alive")
                             .file(fullpath);
 
